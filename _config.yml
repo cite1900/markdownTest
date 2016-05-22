@@ -1,5 +1,5 @@
 baseurl: /markdownTest
-markdown: redcartpet
+markdown: redcarpet
 safe: false
 pygments: true
 excerpt_separator: "\n\n\n"
