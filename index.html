@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <!--<link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">-->
-</head>
-<body style="padding:30px">
-<textarea id="text-input" oninput="this.editor.update()"
-          rows="6" cols="60">Type **Markdown** here.</textarea>
-<div id="preview"> </div>
-<script src="markdown.js"></script>
-<script>
-    preview.innerHTML = markdown.toHTML("### test");
-    //
-//    function Editor(input, preview) {
-//        this.update = function () {
-//            preview.innerHTML = markdown.toHTML(input.value);
-//        };
-//        input.editor = this;
-//        this.update();
-//    }
-//    var $ = function (id) { return document.getElementById(id); };
-//    new Editor($("text-input"), $("preview"));
-</script>
-</body>
-</html>
+---
+　　layout: default
+　　title: 我的Blog
+　　---
+　　<h2>{{ page.title }}</h2>
+　　<p>最新文章</p>
+　　<ul>
+    　　　　{% for post in site.posts %}
+    　　　　　　<li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+    　　　　{% endfor %}
+    　　</ul>
