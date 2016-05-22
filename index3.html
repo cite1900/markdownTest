@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--<link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">-->
+</head>
+<body style="padding:30px">
+<div id="preview"> </div>
+<script src="markdown.js"></script>
+<script>
+    function $(id){
+        return document.getElementById(id);
+    }
+
+    var url='2016-06-10-c.md';
+    var oAjax=new XMLHttpRequest();
+    oAjax.open('GET',url);
+    oAjax.send();
+    oAjax.onreadystatechange=function(){
+        if (oAjax.readyState==4)
+        {
+            if(oAjax.status==200)
+            {
+                alert(oAjax.responseText);
+                $("preview").innerHTML = markdown.toHTML(oAjax.responseText);
+            }
+            else
+            {
+                alert(oAjax.status);
+            }
+        };
+    }
+
+//    $("preview").innerHTML = markdown.toHTML(arr);
+</script>
+</body>
+</html>
